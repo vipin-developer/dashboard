@@ -1,4 +1,5 @@
 
+"use client"
 import styles from './page.module.css'
 import Dashboard from './dashboard/page';
 import Container from 'react-bootstrap/Container';

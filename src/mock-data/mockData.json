@@ -1,0 +1,102 @@
+{
+    "Server-A": {
+      "serverStatus": [
+        {"status": "Online"},
+        {"status": "Online"},
+        {"status": "Offline"},
+        {"status": "Online"},
+        {"status": "Online"}
+      ],
+      "resourceUsage": [
+        {"resource": "CPU", "usage": 30},
+        {"resource": "CPU", "usage": 40},
+        {"resource": "CPU", "usage": 10},
+        {"resource": "CPU", "usage": 50},
+        {"resource": "CPU", "usage": 20},
+        {"resource": "Memory", "usage": 60},
+        {"resource": "Memory", "usage": 70},
+        {"resource": "Memory", "usage": 50},
+        {"resource": "Memory", "usage": 80},
+        {"resource": "Memory", "usage": 40}
+      ],
+      "alertNotifications": [
+        {"message": "High CPU Usage"},
+        {"message": "Memory Usage Alert"}
+      ]
+    },
+    "Server-B": {
+      "serverStatus": [
+        {"status": "Online"},
+        {"status": "Offline"},
+        {"status": "Offline"},
+        {"status": "Online"},
+        {"status": "Online"}
+      ],
+      "resourceUsage": [
+        {"resource": "CPU", "usage": 60},
+        {"resource": "CPU", "usage": 70},
+        {"resource": "CPU", "usage": 50},
+        {"resource": "CPU", "usage": 80},
+        {"resource": "CPU", "usage": 40},
+        {"resource": "Memory", "usage": 30},
+        {"resource": "Memory", "usage": 40},
+        {"resource": "Memory", "usage": 20},
+        {"resource": "Memory", "usage": 50},
+        {"resource": "Memory", "usage": 25}
+      ],
+      "alertNotifications": [
+        {"message": "Server Offline"}
+      ]
+    },
+    "Server-C": {
+      "serverStatus": [
+        {"status": "Online"},
+        {"status": "Online"},
+        {"status": "Online"},
+        {"status": "Online"},
+        {"status": "Offline"}
+      ],
+      "resourceUsage": [
+        {"resource": "CPU", "usage": 30},
+        {"resource": "CPU", "usage": 40},
+        {"resource": "CPU", "usage": 20},
+        {"resource": "CPU", "usage": 50},
+        {"resource": "CPU", "usage": 25},
+        {"resource": "Memory", "usage": 50},
+        {"resource": "Memory", "usage": 60},
+        {"resource": "Memory", "usage": 40},
+        {"resource": "Memory", "usage": 70},
+        {"resource": "Memory", "usage": 35}
+      ],
+      "alertNotifications": [
+        {"message": "Server Offline"},
+        {"message": "Memory Usage Alert"}
+      ]
+    },
+    "Server-D": {
+      "serverStatus": [
+        {"status": "Offline"},
+        {"status": "Offline"},
+        {"status": "Offline"},
+        {"status": "Online"},
+        {"status": "Online"}
+      ],
+      "resourceUsage": [
+        {"resource": "CPU", "usage": 45},
+        {"resource": "CPU", "usage": 60},
+        {"resource": "CPU", "usage": 30},
+        {"resource": "CPU", "usage": 70},
+        {"resource": "CPU", "usage": 35},
+        {"resource": "Memory", "usage": 40},
+        {"resource": "Memory", "usage": 50},
+        {"resource": "Memory", "usage": 30},
+        {"resource": "Memory", "usage": 60},
+        {"resource": "Memory", "usage": 25}
+      ],
+      "alertNotifications": [
+        {"message": "High CPU Usage"},
+        {"message": "Memory Usage Alert"}
+      ]
+    }
+  }
+  

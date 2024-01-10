@@ -4,14 +4,14 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CardComponent from "../card-component/page";
 import jsonData from "../../mock-data/mockData.json";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Chart from "chart.js/auto";
-import { Line } from "react-chartjs-2";
+import { Line,Bar } from "react-chartjs-2";
+import { getFormatedData } from "../helper/helper";
 
-const labels = ["January", "February", "March", "April", "May", "June"];
 
 const data = {
-  labels: labels,
+    labels:[1,2,3],
   datasets: [
     {
       label: "My First dataset",
@@ -23,18 +23,34 @@ const data = {
 };
 
 const Dashboard = () => {
- 
+    const [resouceUsageCPU,setResouceUsageCPU]=useState({
+        datasets:[]
+    })
+    const [resouceUsageMemory,setResouceMemory]=useState({
+        datasets:[]
+    })
+    
+  useEffect(() => {
+    // Call the helper function to get the formatted data
+    const formattedDataCPU = getFormatedData("resourceUsage","CPU");
+
+    setResouceUsageCPU(formattedDataCPU)
+    const formattedDataMemory = getFormatedData("resourceUsage","Memory");
+    setResouceMemory(formattedDataMemory)
+   
+  }, []);
+
   return (
     <Container>
       <Row>
         <Col>
-          <CardComponent>
-            <Line data={data} />
+          <CardComponent title="CPU Usage">
+            <Line data={resouceUsageCPU} />
           </CardComponent>
         </Col>
         <Col>
-          <CardComponent>
-            <Line data={data} />
+          <CardComponent title="Memory Usage">
+            <Bar data={resouceUsageMemory} />
           </CardComponent>
         </Col>
       </Row>

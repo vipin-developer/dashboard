@@ -27,4 +27,7 @@
   .card p {
     color: #666666;
   }
+  .cardTitle{
+    font-size: small;
+  }
   

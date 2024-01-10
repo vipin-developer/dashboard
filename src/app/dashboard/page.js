@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import Chart from "chart.js/auto";
 import { Line, Bar } from "react-chartjs-2";
 import { getFormatedData } from "../helper/helper";
+import ListComponent from "../list-component/page";
 
 const data = {
   labels: [1, 2, 3],
@@ -31,6 +32,14 @@ const Dashboard = () => {
   const [resouceStatus, setResouceStatus] = useState({
     datasets: [],
   });
+  const [serverList, setServerList] = useState([
+    { name: "Server-A", status: "Online" },
+    { name: "Server-B", status: "Offline" },
+    { name: "Server-C", status: "Online" },
+    { name: "Server-D", status: "Online" },
+    { name: "Server-E", status: "Offline" },
+    { name: "Server-F", status: "Online" },
+  ]);
 
   useEffect(() => {
     // Call the helper function to get the formatted data
@@ -73,7 +82,9 @@ const Dashboard = () => {
           </CardComponent>
         </Col>
         <Col>
-          <CardComponent title="Servers"></CardComponent>
+          <CardComponent title="Servers">
+            <ListComponent listData={serverList} />
+          </CardComponent>
         </Col>
       </Row>
     </Container>

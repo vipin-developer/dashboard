@@ -25,20 +25,20 @@ const formattedTime = (time) => {
     hour12: true,
   });
 };
-export const getFormatedData = (chartType, usage) => {
+export const getFormatedData = (chartType, usage,dataType) => {
   let formattedData = {
-    labels: [],
+    labels: ["8:00AM","9:00AM","10:00AM","11:00AM","12:00PM"],
     datasets: [],
   };
   // formattedData=data
   Object.keys(jsonData).forEach((serverName) => {
     const chartData = jsonData[serverName][chartType]
       .filter((item) => item.resource === usage)
-      .map((value) => value.usage);
+      .map((value) => value[dataType]);
     const timeStamp = jsonData[serverName][chartType]
       .filter((item) => item.resource === usage)
       .map((value) => formattedTime(value.timestamp));
-    formattedData.labels.push(...timeStamp);
+    // formattedData.labels.push(...timeStamp);
     formattedData.datasets.push({
       label: serverName,
       data: [...chartData],

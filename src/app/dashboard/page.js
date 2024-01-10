@@ -6,12 +6,11 @@ import CardComponent from "../card-component/page";
 import jsonData from "../../mock-data/mockData.json";
 import { useEffect, useState } from "react";
 import Chart from "chart.js/auto";
-import { Line,Bar } from "react-chartjs-2";
+import { Line, Bar } from "react-chartjs-2";
 import { getFormatedData } from "../helper/helper";
 
-
 const data = {
-    labels:[1,2,3],
+  labels: [1, 2, 3],
   datasets: [
     {
       label: "My First dataset",
@@ -23,21 +22,34 @@ const data = {
 };
 
 const Dashboard = () => {
-    const [resouceUsageCPU,setResouceUsageCPU]=useState({
-        datasets:[]
-    })
-    const [resouceUsageMemory,setResouceMemory]=useState({
-        datasets:[]
-    })
-    
+  const [resouceUsageCPU, setResouceUsageCPU] = useState({
+    datasets: [],
+  });
+  const [resouceUsageMemory, setResouceMemory] = useState({
+    datasets: [],
+  });
+  const [resouceStatus, setResouceStatus] = useState({
+    datasets: [],
+  });
+
   useEffect(() => {
     // Call the helper function to get the formatted data
-    const formattedDataCPU = getFormatedData("resourceUsage","CPU");
+    const formattedDataCPU = getFormatedData("resourceUsage", "CPU", "usage");
+    setResouceUsageCPU(formattedDataCPU);
 
-    setResouceUsageCPU(formattedDataCPU)
-    const formattedDataMemory = getFormatedData("resourceUsage","Memory");
-    setResouceMemory(formattedDataMemory)
-   
+    const formattedDataMemory = getFormatedData(
+      "resourceUsage",
+      "Memory",
+      "usage"
+    );
+    setResouceMemory(formattedDataMemory);
+
+    const formattedDataStatus = getFormatedData(
+      "serverStatus",
+      "status",
+      "status"
+    );
+    setResouceStatus(formattedDataStatus);
   }, []);
 
   return (
@@ -56,14 +68,12 @@ const Dashboard = () => {
       </Row>
       <Row>
         <Col>
-          <CardComponent>
-            <Line data={data} />
+          <CardComponent title="Resource Status">
+            <Line data={resouceStatus} />
           </CardComponent>
         </Col>
         <Col>
-          <CardComponent>
-            <Line data={data} />
-          </CardComponent>
+          <CardComponent title="Servers"></CardComponent>
         </Col>
       </Row>
     </Container>

@@ -1,3 +1,4 @@
+"use client"
 import styles from "./page.module.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";

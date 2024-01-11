@@ -21,7 +21,7 @@ function ServerDetails({ server }) {
   useEffect(() => {
     // Call the helper function to get the formatted data
     const formattedDataCPU = getFormatedData(
-      [{ name: server.name }],
+      [{ name: server?.name }],
       "resourceUsage",
       "CPU",
       "usage"
@@ -53,13 +53,13 @@ function ServerDetails({ server }) {
             {server?.name}
             <div
               className={
-                server.status === "Online"
+                server?.status === "Online"
                   ? styles.onlineIndicator
                   : styles.offlineIndicator
               }
             >
               <span
-                className={server.status === "Online" ? styles.blink : ""}
+                className={server?.status === "Online" ? styles.blink : ""}
               ></span>
             </div>
           </Modal.Title>

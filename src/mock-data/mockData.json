@@ -1,5 +1,6 @@
 {
   "Server-A": {
+    "currentStatus": "Online",
     "serverStatus": [
       {
         "timestamp": "2022-01-01T08:00:00",
@@ -40,11 +41,22 @@
       { "timestamp": "2022-01-01T12:00:00", "resource": "Memory", "usage": 40 }
     ],
     "alertNotifications": [
-      { "timestamp": "2022-01-01T10:30:00", "message": "High CPU Usage" },
-      { "timestamp": "2022-01-01T11:45:00", "message": "Memory Usage Alert" }
+      {
+        "timestamp": "2022-01-01T10:30:00",
+        "message": "High CPU Usage",
+        "server": "Server-A",
+        "delay": 2000
+      },
+      {
+        "timestamp": "2022-01-01T11:45:00",
+        "message": "Memory Usage Alert",
+        "server": "Server-A",
+        "delay": 4000
+      }
     ]
   },
   "Server-B": {
+    "currentStatus": "Offline",
     "serverStatus": [
       {
         "timestamp": "2022-01-01T08:00:00",
@@ -85,10 +97,16 @@
       { "timestamp": "2022-01-01T12:00:00", "resource": "Memory", "usage": 25 }
     ],
     "alertNotifications": [
-      { "timestamp": "2022-01-01T11:45:00", "message": "Server Offline" }
+      {
+        "timestamp": "2022-01-01T11:45:00",
+        "message": "Server Offline",
+        "server": "Server-B",
+        "delay": 8000
+      }
     ]
   },
   "Server-C": {
+    "currentStatus": "Online",
     "serverStatus": [
       {
         "timestamp": "2022-01-01T08:00:00",
@@ -129,7 +147,168 @@
       { "timestamp": "2022-01-01T12:00:00", "resource": "Memory", "usage": 25 }
     ],
     "alertNotifications": [
-      { "timestamp": "2022-01-01T11:45:00", "message": "Server Offline" }
+      {
+        "timestamp": "2022-01-01T11:45:00",
+        "message": "Server Offline",
+        "server": "Server-C",
+        "delay": 10000
+      }
+    ]
+  },
+  "Server-D": {
+    "currentStatus": "Online",
+    "serverStatus": [
+      {
+        "timestamp": "2022-01-01T08:00:00",
+        "resource": "status",
+        "status": 1
+      },
+      {
+        "timestamp": "2022-01-01T09:00:00",
+        "resource": "status",
+        "status": 1
+      },
+      {
+        "timestamp": "2022-01-01T10:00:00",
+        "resource": "status",
+        "status": 0
+      },
+      {
+        "timestamp": "2022-01-01T11:00:00",
+        "resource": "status",
+        "status": 1
+      },
+      {
+        "timestamp": "2022-01-01T12:00:00",
+        "resource": "status",
+        "status": 1
+      }
+    ],
+    "resourceUsage": [
+      { "timestamp": "2022-01-01T08:00:00", "resource": "CPU", "usage": 30 },
+      { "timestamp": "2022-01-01T09:00:00", "resource": "CPU", "usage": 40 },
+      { "timestamp": "2022-01-01T10:00:00", "resource": "CPU", "usage": 10 },
+      { "timestamp": "2022-01-01T11:00:00", "resource": "CPU", "usage": 50 },
+      { "timestamp": "2022-01-01T12:00:00", "resource": "CPU", "usage": 20 },
+      { "timestamp": "2022-01-01T08:00:00", "resource": "Memory", "usage": 60 },
+      { "timestamp": "2022-01-01T09:00:00", "resource": "Memory", "usage": 70 },
+      { "timestamp": "2022-01-01T10:00:00", "resource": "Memory", "usage": 50 },
+      { "timestamp": "2022-01-01T11:00:00", "resource": "Memory", "usage": 80 },
+      { "timestamp": "2022-01-01T12:00:00", "resource": "Memory", "usage": 40 }
+    ],
+    "alertNotifications": [
+      {
+        "timestamp": "2022-01-01T10:30:00",
+        "message": "High CPU Usage",
+        "server": "Server-D",
+        "delay": 12000
+      },
+      {
+        "timestamp": "2022-01-01T11:45:00",
+        "message": "Memory Usage Alert",
+        "server": "Server-D",
+        "delay": 19000
+      }
+    ]
+  },
+  "Server-E": {
+    "currentStatus": "Offline",
+    "serverStatus": [
+      {
+        "timestamp": "2022-01-01T08:00:00",
+        "resource": "status",
+        "status": 1
+      },
+      {
+        "timestamp": "2022-01-01T09:00:00",
+        "resource": "status",
+        "status": 0
+      },
+      {
+        "timestamp": "2022-01-01T10:00:00",
+        "resource": "status",
+        "status": 0
+      },
+      {
+        "timestamp": "2022-01-01T11:00:00",
+        "resource": "status",
+        "status": 1
+      },
+      {
+        "timestamp": "2022-01-01T12:00:00",
+        "resource": "status",
+        "status": 1
+      }
+    ],
+    "resourceUsage": [
+      { "timestamp": "2022-01-01T08:00:00", "resource": "CPU", "usage": 60 },
+      { "timestamp": "2022-01-01T09:00:00", "resource": "CPU", "usage": 70 },
+      { "timestamp": "2022-01-01T10:00:00", "resource": "CPU", "usage": 50 },
+      { "timestamp": "2022-01-01T11:00:00", "resource": "CPU", "usage": 80 },
+      { "timestamp": "2022-01-01T12:00:00", "resource": "CPU", "usage": 40 },
+      { "timestamp": "2022-01-01T08:00:00", "resource": "Memory", "usage": 30 },
+      { "timestamp": "2022-01-01T09:00:00", "resource": "Memory", "usage": 40 },
+      { "timestamp": "2022-01-01T10:00:00", "resource": "Memory", "usage": 20 },
+      { "timestamp": "2022-01-01T11:00:00", "resource": "Memory", "usage": 50 },
+      { "timestamp": "2022-01-01T12:00:00", "resource": "Memory", "usage": 25 }
+    ],
+    "alertNotifications": [
+      {
+        "timestamp": "2022-01-01T11:45:00",
+        "message": "Server Offline",
+        "server": "Server-E",
+        "delay": 20000
+      }
+    ]
+  },
+  "Server-F": {
+    "currentStatus": "Online",
+    "serverStatus": [
+      {
+        "timestamp": "2022-01-01T08:00:00",
+        "resource": "status",
+        "status": 1
+      },
+      {
+        "timestamp": "2022-01-01T09:00:00",
+        "resource": "status",
+        "status": 1
+      },
+      {
+        "timestamp": "2022-01-01T10:00:00",
+        "resource": "status",
+        "status": 1
+      },
+      {
+        "timestamp": "2022-01-01T11:00:00",
+        "resource": "status",
+        "status": 1
+      },
+      {
+        "timestamp": "2022-01-01T12:00:00",
+        "resource": "status",
+        "status": 0
+      }
+    ],
+    "resourceUsage": [
+      { "timestamp": "2022-01-01T08:00:00", "resource": "CPU", "usage": 30 },
+      { "timestamp": "2022-01-01T09:00:00", "resource": "CPU", "usage": 50 },
+      { "timestamp": "2022-01-01T10:00:00", "resource": "CPU", "usage": 50 },
+      { "timestamp": "2022-01-01T11:00:00", "resource": "CPU", "usage": 80 },
+      { "timestamp": "2022-01-01T12:00:00", "resource": "CPU", "usage": 40 },
+      { "timestamp": "2022-01-01T08:00:00", "resource": "Memory", "usage": 30 },
+      { "timestamp": "2022-01-01T09:00:00", "resource": "Memory", "usage": 40 },
+      { "timestamp": "2022-01-01T10:00:00", "resource": "Memory", "usage": 26 },
+      { "timestamp": "2022-01-01T11:00:00", "resource": "Memory", "usage": 50 },
+      { "timestamp": "2022-01-01T12:00:00", "resource": "Memory", "usage": 25 }
+    ],
+    "alertNotifications": [
+      {
+        "timestamp": "2022-01-01T11:45:00",
+        "message": "Server Offline",
+        "server": "Server-F",
+        "delay": 22000
+      }
     ]
   }
 }

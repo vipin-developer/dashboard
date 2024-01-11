@@ -1,0 +1,20 @@
+.listItem{
+    display: flex !important;
+    justify-content: space-between !important;
+    transition: transform 0.3s;
+    
+}
+.listItem:hover{
+    background: rgb(32, 85, 219);
+    color: white;
+    transform: scale(1.02);
+    border-radius: 8px;
+
+}
+.serverName{
+    width: -webkit-fill-available;
+}
+.statusBadge{
+    display: flex;
+    align-items: center;
+}

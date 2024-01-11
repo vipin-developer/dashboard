@@ -9,18 +9,16 @@ import Chart from "chart.js/auto";
 import { Line, Bar } from "react-chartjs-2";
 import { getFormatedData } from "../helper/helper";
 import ListComponent from "../list-component/page";
+import { Dropdown, DropdownButton } from "react-bootstrap";
 
-const data = {
-  labels: [1, 2, 3],
-  datasets: [
-    {
-      label: "My First dataset",
-      backgroundColor: "rgb(255, 99, 132)",
-      borderColor: "rgb(255, 99, 132)",
-      data: [0, 10, 5, 2, 20, 30, 45],
-    },
-  ],
-};
+const serverArray = [
+  { name: "Server-A", status: "Online" },
+  { name: "Server-B", status: "Offline" },
+  { name: "Server-C", status: "Online" },
+  { name: "Server-D", status: "Online" },
+  { name: "Server-E", status: "Offline" },
+  { name: "Server-F", status: "Online" },
+];
 
 const Dashboard = () => {
   const [resouceUsageCPU, setResouceUsageCPU] = useState({
@@ -32,14 +30,22 @@ const Dashboard = () => {
   const [resouceStatus, setResouceStatus] = useState({
     datasets: [],
   });
-  const [serverList, setServerList] = useState([
-    { name: "Server-A", status: "Online" },
-    { name: "Server-B", status: "Offline" },
-    { name: "Server-C", status: "Online" },
-    { name: "Server-D", status: "Online" },
-    { name: "Server-E", status: "Offline" },
-    { name: "Server-F", status: "Online" },
-  ]);
+  const [serverList, setServerList] = useState(serverArray);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchAndFilter = (value, serachKey) => {
+    const term = value;
+    setSearchTerm(term);
+    // Filtering the data based on the search term
+    const results = serverArray.filter((item) =>
+      item[serachKey].toLowerCase().includes(term.toLowerCase())
+    );
+    if (results.length) {
+      setServerList(results);
+    } else {
+      setServerList(serverArray);
+    }
+  };
 
   useEffect(() => {
     // Call the helper function to get the formatted data
@@ -66,10 +72,46 @@ const Dashboard = () => {
       "status"
     );
     setResouceStatus(formattedDataStatus);
-  }, []);
+  }, [searchTerm]);
 
   return (
     <Container>
+      <Row>
+        <Col className={styles.searchCol}>
+          <input
+            type="text"
+            placeholder="Search by name"
+            value={searchTerm}
+            onChange={(e) => handleSearchAndFilter(e.target.value, "name")}
+            className={styles.searchInput}
+          />
+          <DropdownButton className={styles.dropDown} title="Filter">
+            <Dropdown.Item
+              onClick={() => handleSearchAndFilter("Online", "status")}
+            >
+              Online
+            </Dropdown.Item>
+            <Dropdown.Item
+              onClick={() => handleSearchAndFilter("Offline", "status")}
+            >
+              Offline
+            </Dropdown.Item>
+          </DropdownButton>
+          {/* <h5 className={styles.searchTerm}>{searchTerm}</h5> */}
+          {searchTerm !== "" && searchTerm==="Online" || searchTerm === "Offline" && (
+            <p
+              className={styles.clear}
+              onClick={() => {
+                setServerList(serverArray);
+                setSearchTerm("");
+              }}
+            >
+              Clear
+            </p>
+          )}
+        </Col>
+      </Row>
+
       <Row>
         <Col>
           <CardComponent title="CPU Usage">

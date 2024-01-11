@@ -2,7 +2,7 @@
     display: flex !important;
     justify-content: space-between !important;
     transition: transform 0.3s;
-    cursor: pointer;
+    
 }
 .listItem:hover{
     background: rgb(32, 85, 219);

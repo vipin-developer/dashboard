@@ -5,7 +5,7 @@ import ServerDetails from "../modal-component/page";
 const ListComponent = ({ listData }) => {
   return (
     <ListGroup>
-      {listData.map((list) => {
+      {listData?.map((list) => {
         return (
           <ListGroup.Item className={styles.listItem} key={list.name}>
             <h6 className={styles.serverName}>{list.name}</h6>

@@ -1,19 +1,21 @@
 import { Badge } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
 import styles from "./page.module.css";
+import ServerDetails from "../modal-component/page";
 const ListComponent = ({ listData }) => {
   return (
     <ListGroup>
       {listData.map((list) => {
         return (
           <ListGroup.Item className={styles.listItem} key={list.name}>
-            {list.name}
+            <h6 className={styles.serverName}>{list.name}</h6>
+            <ServerDetails server={list} />
             {list.status === "Online" ? (
-              <Badge pill bg="success">
+              <Badge className={styles.statusBadge} pill bg="success">
                 Online
               </Badge>
             ) : (
-              <Badge pill bg="danger">
+              <Badge className={styles.statusBadge} pill bg="danger">
                 Offline
               </Badge>
             )}

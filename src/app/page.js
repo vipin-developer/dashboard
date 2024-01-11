@@ -6,10 +6,17 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Header from './header/page';
+import { useEffect } from 'react';
+import { loadAllNotification } from './helper/helper';
 
 export default function Home() {
+  
+  useEffect(()=>{
+    loadAllNotification()
+  },[])   
   return (
     <main className={styles.main}>
+          
       <Container>
       <Row>
         <Col><Header/></Col>

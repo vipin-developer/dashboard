@@ -43,10 +43,16 @@ const Dashboard = () => {
 
   useEffect(() => {
     // Call the helper function to get the formatted data
-    const formattedDataCPU = getFormatedData("resourceUsage", "CPU", "usage");
+    const formattedDataCPU = getFormatedData(
+      serverList,
+      "resourceUsage",
+      "CPU",
+      "usage"
+    );
     setResouceUsageCPU(formattedDataCPU);
 
     const formattedDataMemory = getFormatedData(
+      serverList,
       "resourceUsage",
       "Memory",
       "usage"
@@ -54,6 +60,7 @@ const Dashboard = () => {
     setResouceMemory(formattedDataMemory);
 
     const formattedDataStatus = getFormatedData(
+      serverList,
       "serverStatus",
       "status",
       "status"

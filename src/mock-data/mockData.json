@@ -1,6 +1,7 @@
 {
   "Server-A": {
-    "serverStatus": [
+   "currentStatus":"Online", 
+   "serverStatus":[
       {
         "timestamp": "2022-01-01T08:00:00",
         "resource": "status",
@@ -45,7 +46,8 @@
     ]
   },
   "Server-B": {
-    "serverStatus": [
+   "currentStatus":"Offline",
+    "serverStatus":[
       {
         "timestamp": "2022-01-01T08:00:00",
         "resource": "status",
@@ -89,7 +91,8 @@
     ]
   },
   "Server-C": {
-    "serverStatus": [
+   "currentStatus":"Online",
+    "serverStatus":[
       {
         "timestamp": "2022-01-01T08:00:00",
         "resource": "status",
@@ -133,7 +136,8 @@
     ]
   },
   "Server-D": {
-    "serverStatus": [
+   "currentStatus":"Online",
+   "serverStatus":[
       {
         "timestamp": "2022-01-01T08:00:00",
         "resource": "status",
@@ -178,7 +182,8 @@
     ]
   },
   "Server-E": {
-    "serverStatus": [
+   "currentStatus":"Offline",
+    "serverStatus":[
       {
         "timestamp": "2022-01-01T08:00:00",
         "resource": "status",
@@ -222,7 +227,8 @@
     ]
   },
   "Server-F": {
-    "serverStatus": [
+   "currentStatus":"Online",
+    "serverStatus":[
       {
         "timestamp": "2022-01-01T08:00:00",
         "resource": "status",

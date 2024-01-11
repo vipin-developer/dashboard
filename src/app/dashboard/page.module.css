@@ -1,0 +1,36 @@
+.searchCol{
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px;   
+}
+.searchInput{
+    background: transparent;
+    width: 20vw;
+    border: 1px solid grey;
+    border-radius: 16px;
+    padding:5px 20px;
+}
+.dropDown{
+    background: transparent;
+    margin: 5px;
+}
+.clear{
+    margin: 5px;
+    cursor: pointer;
+}
+.searchTerm{
+    margin: 5px;
+}
+/* Media query for mobile devices */
+@media only screen and (max-width: 768px) {
+    /* Styles specific to mobile devices go here */
+  
+    .searchInput{
+        background: transparent;
+        width: 55vw;
+        border: 1px solid grey;
+        border-radius: 16px;
+        padding:5px 20px;
+    }
+  
+  }

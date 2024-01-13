@@ -24,6 +24,7 @@ export default function Home() {
       <Row>
         <Col><Dashboard/></Col>
       </Row>
+      
     </Container>
    
     </main>

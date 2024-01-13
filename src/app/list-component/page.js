@@ -8,7 +8,8 @@ const ListComponent = ({ listData }) => {
       {listData?.map((list) => {
         return (
           <ListGroup.Item className={styles.listItem} key={list.name}>
-            <h6 className={styles.serverName}>{list.name}</h6>
+            <h6 className={styles.serverName}>{list.name},&nbsp;Region: {list.region}</h6>
+           
             <ServerDetails server={list} />
             {list.status === "Online" ? (
               <Badge className={styles.statusBadge} pill bg="success">

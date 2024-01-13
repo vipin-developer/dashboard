@@ -50,7 +50,7 @@ function ServerDetails({ server }) {
       <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
           <Modal.Title>
-            {server?.name}
+            {server?.name},&nbsp;Region: {server.region}
             <div
               className={
                 server?.status === "Online"

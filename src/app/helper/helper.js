@@ -22,7 +22,7 @@ export const loadAllNotification = () => {
   Object.keys(jsonData).map((server) => {
     notificationObj.push(...jsonData[server].alertNotifications);
   });
-  notificationObj.forEach(handleNotification);
+//   notificationObj.forEach(handleNotification);
 };
 const handleNotification = (notificationObj) => {
   const options = {

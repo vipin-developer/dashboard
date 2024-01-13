@@ -1,10 +1,9 @@
-"use client"
+"use client";
 import styles from "./page.module.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CardComponent from "../card-component/page";
-import jsonData from "../../mock-data/mockData.json";
 import { useEffect, useState } from "react";
 import Chart from "chart.js/auto";
 import { Line, Bar } from "react-chartjs-2";
@@ -13,12 +12,12 @@ import ListComponent from "../list-component/page";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 
 const serverArray = [
-  { name: "Server-A", status: "Online" },
-  { name: "Server-B", status: "Offline" },
-  { name: "Server-C", status: "Online" },
-  { name: "Server-D", status: "Online" },
-  { name: "Server-E", status: "Offline" },
-  { name: "Server-F", status: "Online" },
+  { name: "Server-A", status: "Online", region: "Australia" },
+  { name: "Server-B", status: "Offline", region: "India" },
+  { name: "Server-C", status: "Online", region: "India" },
+  { name: "Server-D", status: "Online", region: "Australia" },
+  { name: "Server-E", status: "Offline", region: "USA" },
+  { name: "Server-F", status: "Online", region: "USA" },
 ];
 
 const Dashboard = () => {
@@ -38,8 +37,10 @@ const Dashboard = () => {
     const term = value;
     setSearchTerm(term);
     // Filtering the data based on the search term
-    const results = serverArray.filter((item) =>
-      item[serachKey].toLowerCase().includes(term.toLowerCase())
+    const results = serverArray.filter(
+      (item) =>
+        item[serachKey].toLowerCase().includes(term.toLowerCase()) ||
+        item["region"].toLowerCase().includes(term.toLowerCase())
     );
     if (results.length) {
       setServerList(results);
@@ -76,7 +77,7 @@ const Dashboard = () => {
   }, [searchTerm]);
 
   return (
-    <Container>
+    <Container className={styles.dashboardDiv}>
       <Row>
         <Col className={styles.searchCol}>
           <input
@@ -99,17 +100,18 @@ const Dashboard = () => {
             </Dropdown.Item>
           </DropdownButton>
           {/* <h5 className={styles.searchTerm}>{searchTerm}</h5> */}
-          {searchTerm !== "" && searchTerm==="Online" || searchTerm === "Offline" && (
-            <p
-              className={styles.clear}
-              onClick={() => {
-                setServerList(serverArray);
-                setSearchTerm("");
-              }}
-            >
-              Clear
-            </p>
-          )}
+          {(searchTerm !== "" && searchTerm === "Online") ||
+            (searchTerm === "Offline" && (
+              <p
+                className={styles.clear}
+                onClick={() => {
+                  setServerList(serverArray);
+                  setSearchTerm("");
+                }}
+              >
+                Clear
+              </p>
+            ))}
         </Col>
       </Row>
 
@@ -128,7 +130,19 @@ const Dashboard = () => {
       <Row>
         <Col>
           <CardComponent title="Resource Status">
-            <Line data={resouceStatus} />
+            <Bar
+              options={{
+                scales: {
+                  x: {
+                    stacked: true,
+                  },
+                  y: {
+                    stacked: true,
+                  },
+                },
+              }}
+              data={resouceStatus}
+            />
           </CardComponent>
         </Col>
         <Col>

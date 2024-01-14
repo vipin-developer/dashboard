@@ -13,6 +13,9 @@
 }
 .serverName{
     width: -webkit-fill-available;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 .statusBadge{
     display: flex;

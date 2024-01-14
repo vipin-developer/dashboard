@@ -4,5 +4,5 @@
   justify-content: space-between;
   align-items: center;
   min-height: 140vh;
-  background-color: aliceblue;
+  background: linear-gradient(to right, #0090ff66, #00ffe35c);
 }

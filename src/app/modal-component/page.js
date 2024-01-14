@@ -1,3 +1,4 @@
+"use client"
 // External dependencies
 import React, { useEffect, useState } from "react";
 

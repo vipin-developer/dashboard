@@ -1,8 +1,11 @@
-.dashboard{
+.header{
     background-color: black; /* Header background color */
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
+    position: fixed;
+    width: 100vw;
+    z-index: 2;
 }
